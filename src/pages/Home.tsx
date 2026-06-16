@@ -28,11 +28,29 @@ export default function Home() {
           </Link>
 
           <Link
-            to="/explore"
-            className="px-6 py-3 rounded-xl border"
-          >
-            Explorar libros
-          </Link>
+  to="/publish"
+  className="
+    px-6
+    py-3
+    rounded-xl
+    bg-black
+    text-white
+  "
+>
+  Publicar libro
+</Link>
+
+<Link
+  to="/explore"
+  className="
+    px-6
+    py-3
+    rounded-xl
+    border
+  "
+>
+  Explorar libros
+</Link>
         </div>
       </section>
     </div>
