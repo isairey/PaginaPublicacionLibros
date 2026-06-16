@@ -172,6 +172,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
+import Publish from "./pages/Publish";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import BookDetails from "./pages/BookDetails";
@@ -180,10 +181,31 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/explore" element={<Explore />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/book/:id" element={<BookDetails />} />
+
+      <Route
+        path="/explore"
+        element={<Explore />}
+      />
+
+      <Route
+        path="/publish"
+        element={<Publish />}
+      />
+
+      <Route
+        path="/login"
+        element={<Login />}
+      />
+
+      <Route
+        path="/register"
+        element={<Register />}
+      />
+
+      <Route
+        path="/book/:id"
+        element={<BookDetails />}
+      />
     </Routes>
   );
 }

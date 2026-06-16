@@ -1,46 +1,50 @@
 import { useEffect, useState } from "react";
 import type { Book } from "../types/Book";
-import BookForm from "../components/BookForm";
 import BookList from "../components/BookList";
 import Navbar from "../components/Navbar";
 
 export default function Explore() {
-  const [books, setBooks] = useState<Book[]>(() => {
-    const saved = localStorage.getItem("books");
-    return saved ? JSON.parse(saved) : [];
-  });
-
+  const [books, setBooks] = useState<Book[]>([]);
   const [search, setSearch] = useState("");
 
-useEffect(() => {
-  localStorage.setItem(
-    "books",
-    JSON.stringify(books)
-  );
-}, [books]);
+  useEffect(() => {
+    const saved = localStorage.getItem("books");
 
-  const addBook = (book: Book) => {
-    setBooks((prev) => [book, ...prev]);
-  };
+    if (saved) {
+      setBooks(JSON.parse(saved));
+    }
+  }, []);
 
   const deleteBook = (id: string) => {
-    setBooks((prev) =>
-      prev.filter((book) => book.id !== id)
+    const updated = books.filter(
+      (book) => book.id !== id
+    );
+
+    setBooks(updated);
+
+    localStorage.setItem(
+      "books",
+      JSON.stringify(updated)
     );
   };
 
   const likeBook = (id: string) => {
-  setBooks((prev) =>
-    prev.map((book) =>
+    const updated = books.map((book) =>
       book.id === id
         ? {
             ...book,
             likes: book.likes + 1,
           }
         : book
-    )
-  );
-};
+    );
+
+    setBooks(updated);
+
+    localStorage.setItem(
+      "books",
+      JSON.stringify(updated)
+    );
+  };
 
   const filteredBooks = books.filter(
     (book) =>
@@ -56,23 +60,34 @@ useEffect(() => {
     <div className="min-h-screen bg-zinc-50">
       <Navbar />
 
-      <section className="max-w-7xl mx-auto px-6 py-10">
-        <h1 className="text-5xl font-bold mb-8">
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <h1 className="text-6xl font-bold">
           Explorar libros
         </h1>
 
+        <p className="mt-4 text-zinc-500 text-xl">
+          Descubre historias creadas por la comunidad.
+        </p>
+
         <input
           type="text"
-          placeholder="Buscar libros o autores..."
+          placeholder="Buscar libros..."
           value={search}
           onChange={(e) =>
             setSearch(e.target.value)
           }
-          className="w-full bg-white border border-zinc-200 rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-black"
+          className="
+            mt-8
+            w-full
+            px-5
+            py-4
+            bg-white
+            border
+            border-zinc-200
+            rounded-2xl
+          "
         />
       </section>
-
-      <BookForm onAddBook={addBook} />
 
       <BookList
         books={filteredBooks}
