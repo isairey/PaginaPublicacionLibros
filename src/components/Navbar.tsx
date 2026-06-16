@@ -14,11 +14,18 @@ export default function Navbar() {
 
         <div className="flex gap-3">
           <Link
-            to="/explore"
-            className="px-4 py-2 rounded-xl border"
-          >
-            Explorar
-          </Link>
+  to="/explore"
+  className="px-4 py-2 rounded-xl border"
+>
+  Explorar
+</Link>
+
+<Link
+  to="/publish"
+  className="px-4 py-2 rounded-xl border"
+>
+  Publicar
+</Link>
 
           <Link
             to="/login"
@@ -33,6 +40,9 @@ export default function Navbar() {
           >
             Registro
           </Link>
+
+
+          
         </div>
       </div>
     </nav>
