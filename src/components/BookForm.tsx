@@ -106,7 +106,7 @@ export default function BookForm({ onAddBook }: Props) {
             type="submit"
             className="w-full bg-black text-white py-4 rounded-2xl font-medium hover:bg-zinc-800 transition"
           >
-            📚 Publicar libro
+             Publicar libro
           </button>
         </form>
       </div>
