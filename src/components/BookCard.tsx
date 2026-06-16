@@ -1,4 +1,5 @@
 import type { Book } from "../types/Book";
+import { Link } from "react-router-dom";
 
 interface Props {
   book: Book;
@@ -12,16 +13,37 @@ export default function BookCard({
   onLike,
 }: Props) {
   return (
-    <div className="group bg-white border border-zinc-200 rounded-3xl overflow-hidden hover:border-zinc-300 hover:shadow-xl transition-all duration-300">
-      
+    <div
+      className="
+        group
+        bg-white
+        border
+        border-zinc-200
+        rounded-3xl
+        overflow-hidden
+        hover:border-zinc-300
+        hover:shadow-xl
+        transition-all
+        duration-300
+      "
+    >
+      {/* Portada */}
       <div className="overflow-hidden">
         <img
           src={book.cover}
           alt={book.title}
-          className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+          className="
+            w-full
+            h-72
+            object-cover
+            group-hover:scale-105
+            transition-transform
+            duration-500
+          "
         />
       </div>
 
+      {/* Contenido */}
       <div className="p-6">
         <p className="text-sm text-zinc-500">
           ✍️ {book.author}
@@ -35,22 +57,51 @@ export default function BookCard({
           {book.description}
         </p>
 
+        {/* Acciones */}
         <div className="flex items-center justify-between mt-6">
-          <button className="text-sm font-medium text-black hover:text-zinc-600 transition">
+          <Link
+            to={`/book/${book.id}`}
+            className="
+              text-sm
+              font-medium
+              text-black
+              hover:text-zinc-600
+              transition
+            "
+          >
             Leer →
-          </button>
+          </Link>
 
           <button
             onClick={() => onLike(book.id)}
-            className="px-3 py-1.5 rounded-xl bg-zinc-100 hover:bg-zinc-200 transition text-sm"
+            className="
+              px-3
+              py-1.5
+              rounded-xl
+              bg-zinc-100
+              hover:bg-zinc-200
+              transition
+              text-sm
+            "
           >
             ❤️ {book.likes}
           </button>
         </div>
 
+        {/* Eliminar */}
         <button
           onClick={() => onDelete(book.id)}
-          className="w-full mt-4 py-2.5 rounded-xl border border-red-200 text-red-600 hover:bg-red-50 transition"
+          className="
+            w-full
+            mt-4
+            py-2.5
+            rounded-xl
+            border
+            border-red-200
+            text-red-600
+            hover:bg-red-50
+            transition
+          "
         >
           Eliminar libro
         </button>
