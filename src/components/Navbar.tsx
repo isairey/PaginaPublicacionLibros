@@ -9,7 +9,7 @@ export default function Navbar() {
           to="/"
           className="font-bold text-xl"
         >
-          📚 BookVerse
+          BookVerse
         </Link>
 
         <div className="flex gap-3">
