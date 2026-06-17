@@ -233,7 +233,7 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-8 mt-16">
           <div className="bg-white border border-zinc-200 rounded-3xl p-8 hover:shadow-lg transition">
-            <div className="text-5xl">📚</div>
+            <div className="text-5xl"></div>
 
             <h3 className="mt-6 text-2xl font-bold">
               Publica fácilmente
@@ -245,7 +245,7 @@ export default function Home() {
           </div>
 
           <div className="bg-white border border-zinc-200 rounded-3xl p-8 hover:shadow-lg transition">
-            <div className="text-5xl">❤️</div>
+            <div className="text-5xl"></div>
 
             <h3 className="mt-6 text-2xl font-bold">
               Recibe apoyo
@@ -257,7 +257,7 @@ export default function Home() {
           </div>
 
           <div className="bg-white border border-zinc-200 rounded-3xl p-8 hover:shadow-lg transition">
-            <div className="text-5xl">🌎</div>
+            <div className="text-5xl"></div>
 
             <h3 className="mt-6 text-2xl font-bold">
               Alcance global
@@ -349,7 +349,7 @@ export default function Home() {
 
                 <div className="p-7">
                   <p className="text-sm text-emerald-700 font-medium">
-                    ✍️ {book.author}
+                     {book.author}
                   </p>
 
                   <h3 className="mt-3 text-3xl font-bold">
@@ -378,46 +378,109 @@ export default function Home() {
         </section>
       )}
 
+    
       {/* CTA */}
-      <section className="max-w-7xl mx-auto px-6 pb-24">
-        <div
+<section className="max-w-7xl mx-auto px-6 pb-24">
+  <div
+    className="
+      rounded-[40px]
+      bg-white
+      border
+      border-zinc-200
+      p-16
+      text-center
+      shadow-[0_20px_80px_rgba(0,0,0,0.08)]
+      overflow-hidden
+      relative
+    "
+  >
+    {/* Decoración */}
+    <div className="absolute top-0 left-0 w-72 h-72 bg-zinc-100 rounded-full blur-3xl opacity-60" />
+    <div className="absolute bottom-0 right-0 w-72 h-72 bg-zinc-100 rounded-full blur-3xl opacity-60" />
+
+    <div className="relative z-10">
+      <span
+        className="
+          inline-flex
+          items-center
+          px-4
+          py-2
+          rounded-full
+          bg-zinc-100
+          text-zinc-700
+          text-sm
+          font-medium
+        "
+      >
+        ✨ Empieza a escribir hoy
+      </span>
+
+      <h2
+        className="
+          mt-6
+          text-5xl
+          md:text-6xl
+          font-bold
+          text-zinc-900
+          tracking-tight
+        "
+      >
+        Tu próxima historia
+        <br />
+        comienza aquí.
+      </h2>
+
+      <p
+        className="
+          mt-6
+          text-xl
+          text-zinc-500
+          max-w-2xl
+          mx-auto
+        "
+      >
+        Comparte novelas, cuentos y relatos con lectores
+        de todo el mundo. Publica gratis y crea tu propia
+        comunidad.
+      </p>
+
+      <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <Link
+          to="/publish"
           className="
-            rounded-[40px]
-            bg-gradient-to-r
-            from-emerald-600
-            to-green-700
-            p-16
-            text-center
+            px-8
+            py-4
+            rounded-2xl
+            bg-black
             text-white
+            font-semibold
+            hover:bg-zinc-800
+            transition
           "
         >
-          <h2 className="text-5xl font-bold">
-            Tu próxima historia comienza hoy.
-          </h2>
+          Publicar libro
+        </Link>
 
-          <p className="mt-5 text-xl text-emerald-100">
-            Miles de lectores están esperando tu obra.
-          </p>
-
-          <Link
-            to="/publish"
-            className="
-              inline-block
-              mt-8
-              px-8
-              py-4
-              rounded-2xl
-              bg-white
-              text-emerald-700
-              font-bold
-              hover:scale-105
-              transition
-            "
-          >
-            Publicar ahora
-          </Link>
-        </div>
-      </section>
+        <Link
+          to="/explore"
+          className="
+            px-8
+            py-4
+            rounded-2xl
+            border
+            border-zinc-300
+            text-zinc-800
+            font-semibold
+            hover:bg-zinc-100
+            transition
+          "
+        >
+          Explorar historias
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   );
 }
