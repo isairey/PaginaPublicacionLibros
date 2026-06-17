@@ -17,94 +17,166 @@ export default function BookCard({
       className="
         group
         bg-white
-        border
-        border-zinc-200
-        rounded-3xl
+        rounded-[32px]
         overflow-hidden
-        hover:border-zinc-300
-        hover:shadow-xl
+        border
+        border-emerald-100
+        shadow-lg
+        hover:shadow-2xl
+        hover:-translate-y-2
         transition-all
-        duration-300
+        duration-500
       "
     >
-      {/* Portada */}
-      <div className="overflow-hidden">
+      {/* Imagen */}
+      <div className="relative overflow-hidden">
+
         <img
           src={book.cover}
           alt={book.title}
+          onError={(e) => {
+            e.currentTarget.src =
+              "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1200";
+          }}
           className="
             w-full
-            h-72
+            h-80
             object-cover
-            group-hover:scale-105
+            group-hover:scale-110
             transition-transform
-            duration-500
+            duration-700
           "
         />
+
+        {/* Gradiente */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-black/40
+            via-transparent
+            to-transparent
+          "
+        />
+
+        {/* Likes flotantes */}
+        <div
+          className="
+            absolute
+            top-4
+            right-4
+            bg-white/90
+            backdrop-blur
+            px-3
+            py-1.5
+            rounded-full
+            text-sm
+            font-semibold
+            text-emerald-700
+            shadow-md
+          "
+        >
+          ❤️ {book.likes}
+        </div>
       </div>
 
       {/* Contenido */}
       <div className="p-6">
-        <p className="text-sm text-zinc-500">
-          ✍️ {book.author}
-        </p>
 
-        <h2 className="text-2xl font-semibold text-zinc-900 mt-2">
+        <span
+          className="
+            inline-flex
+            px-3
+            py-1
+            rounded-full
+            bg-emerald-50
+            text-emerald-700
+            text-xs
+            font-semibold
+          "
+        >
+          ✍️ {book.author}
+        </span>
+
+        <h2
+          className="
+            mt-4
+            text-2xl
+            font-bold
+            text-zinc-900
+            line-clamp-2
+          "
+        >
           {book.title}
         </h2>
 
-        <p className="text-zinc-600 mt-3 line-clamp-3">
+        <p
+          className="
+            mt-3
+            text-zinc-600
+            leading-relaxed
+            line-clamp-4
+          "
+        >
           {book.description}
         </p>
 
-        {/* Acciones */}
-        <div className="flex items-center justify-between mt-6">
+        {/* Botones */}
+        <div className="flex gap-3 mt-6">
+
           <Link
             to={`/book/${book.id}`}
             className="
-              text-sm
-              font-medium
-              text-black
-              hover:text-zinc-600
+              flex-1
+              text-center
+              py-3
+              rounded-2xl
+              bg-emerald-600
+              text-white
+              font-semibold
+              hover:bg-emerald-700
               transition
             "
           >
-            Leer →
+            📖 Leer libro
           </Link>
 
           <button
             onClick={() => onLike(book.id)}
             className="
-              px-3
-              py-1.5
-              rounded-xl
-              bg-zinc-100
-              hover:bg-zinc-200
+              px-4
+              rounded-2xl
+              border
+              border-emerald-200
+              text-emerald-700
+              hover:bg-emerald-50
               transition
-              text-sm
             "
           >
-            ❤️ {book.likes}
+            ❤️
           </button>
+
         </div>
 
-        {/* Eliminar */}
         <button
           onClick={() => onDelete(book.id)}
           className="
             w-full
-            mt-4
-            py-2.5
-            rounded-xl
+            mt-3
+            py-3
+            rounded-2xl
             border
-            border-red-200
-            text-red-600
+            border-red-100
+            text-red-500
             hover:bg-red-50
             transition
+            font-medium
           "
         >
-          Eliminar libro
+          🗑️ Eliminar libro
         </button>
+
       </div>
     </div>
   );
