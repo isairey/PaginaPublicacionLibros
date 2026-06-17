@@ -90,7 +90,7 @@ export default function Explore() {
               shadow-sm
             "
           >
-            📚 Comunidad BookVerse
+             Comunidad BookVerse
           </span>
 
           <h1
@@ -264,7 +264,7 @@ export default function Explore() {
                 border-zinc-200
               "
             >
-              <span>👋</span>
+              <span></span>
 
               <span className="text-zinc-700">
                 {user.email}
