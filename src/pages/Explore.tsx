@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import type { Book } from "../types/Book";
 import BookList from "../components/BookList";
 import Navbar from "../components/Navbar";
-
+import { useAuth } from "../context/AuthContext";
 export default function Explore() {
   const [books, setBooks] = useState<Book[]>([]);
   const [search, setSearch] = useState("");
-
+  const { user } = useAuth();
   useEffect(() => {
     const saved = localStorage.getItem("books");
 
