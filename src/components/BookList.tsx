@@ -27,7 +27,7 @@ export default function BookList({
           "
         >
           <div className="text-7xl mb-6">
-            📚
+            
           </div>
 
           <h2 className="text-4xl font-bold text-zinc-900">
@@ -52,7 +52,7 @@ export default function BookList({
                 font-medium
               "
             >
-              ✍️ Escribe
+               Escribe
             </div>
 
             <div
@@ -66,7 +66,7 @@ export default function BookList({
                 font-medium
               "
             >
-              📖 Comparte
+               Comparte
             </div>
 
             <div
@@ -119,7 +119,7 @@ export default function BookList({
             font-medium
           "
         >
-          📚 {books.length}
+           {books.length}
         </div>
       </div>
 

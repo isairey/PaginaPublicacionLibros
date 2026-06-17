@@ -96,7 +96,7 @@ export default function BookCard({
             font-semibold
           "
         >
-          ✍️ {book.author}
+           {book.author}
         </span>
 
         <h2
@@ -139,7 +139,7 @@ export default function BookCard({
               transition
             "
           >
-            📖 Leer libro
+            Leer libro
           </Link>
 
           <button
@@ -174,7 +174,7 @@ export default function BookCard({
             font-medium
           "
         >
-          🗑️ Eliminar libro
+           Eliminar libro
         </button>
 
       </div>
