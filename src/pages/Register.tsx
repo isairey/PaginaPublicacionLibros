@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-
+import Navbar from "../components/Navbar";
 export default function Register() {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -46,7 +46,7 @@ export default function Register() {
 
   return (
     <div className="min-h-screen bg-[#f6f8f4] overflow-hidden relative">
-
+<Navbar />
       {/* Fondo */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-[700px] h-[700px] bg-green-200/40 blur-[150px]" />
