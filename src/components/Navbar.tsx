@@ -11,7 +11,7 @@ export default function Navbar() {
           to="/"
           className="font-bold text-xl text-zinc-900"
         >
-          📚 BookVerse
+           BookVerse
         </Link>
 
         <div className="flex items-center gap-3">

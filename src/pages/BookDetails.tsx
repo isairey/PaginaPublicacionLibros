@@ -9,27 +9,46 @@ export default function BookDetails() {
     localStorage.getItem("books") || "[]"
   );
 
-  const book = books.find((b) => b.id === id);
+  const book = books.find(
+    (b) => b.id === id
+  );
 
   if (!book) {
     return (
-      <div className="min-h-screen bg-zinc-50">
+      <div className="min-h-screen bg-emerald-50">
         <Navbar />
 
-        <div className="max-w-4xl mx-auto px-6 py-24 text-center">
+        <div className="max-w-4xl mx-auto px-6 py-32 text-center">
+          <div className="text-8xl mb-6">
+            
+          </div>
+
           <h1 className="text-5xl font-bold text-zinc-900">
             Libro no encontrado
           </h1>
 
-          <p className="mt-4 text-zinc-500">
+          <p className="mt-5 text-zinc-500 text-lg">
             Este libro no existe o fue eliminado.
           </p>
 
           <Link
             to="/explore"
-            className="inline-block mt-8 px-6 py-3 bg-black text-white rounded-xl"
+            className="
+              inline-flex
+              items-center
+              gap-2
+              mt-8
+              px-8
+              py-4
+              rounded-2xl
+              bg-emerald-600
+              text-white
+              font-semibold
+              hover:bg-emerald-700
+              transition
+            "
           >
-            Volver a explorar
+            ← Volver a explorar
           </Link>
         </div>
       </div>
@@ -37,87 +56,280 @@ export default function BookDetails() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50">
+    <div className="min-h-screen bg-emerald-50">
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-white border-b border-zinc-200">
-        <div className="max-w-6xl mx-auto px-6 py-16">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="relative overflow-hidden">
 
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-br
+            from-emerald-100
+            via-white
+            to-emerald-50
+          "
+        />
+
+        <div className="relative max-w-7xl mx-auto px-6 py-20">
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* Texto */}
             <div>
-              <span className="inline-flex items-center rounded-full border border-zinc-200 px-4 py-1 text-sm text-zinc-600">
-                📚 Historia publicada
+
+              <span
+                className="
+                  inline-flex
+                  px-4
+                  py-2
+                  rounded-full
+                  bg-emerald-100
+                  text-emerald-700
+                  text-sm
+                  font-semibold
+                "
+              >
+                📖 Historia publicada
               </span>
 
-              <h1 className="mt-6 text-6xl font-bold tracking-tight text-zinc-900">
+              <h1
+                className="
+                  mt-8
+                  text-6xl
+                  lg:text-7xl
+                  font-black
+                  text-zinc-900
+                  leading-tight
+                "
+              >
                 {book.title}
               </h1>
 
-              <p className="mt-4 text-xl text-zinc-500">
-                ✍️ {book.author}
+              <p
+                className="
+                  mt-5
+                  text-2xl
+                  text-emerald-700
+                  font-medium
+                "
+              >
+                 {book.author}
               </p>
 
-              <p className="mt-8 text-lg text-zinc-600 leading-8">
+              <p
+                className="
+                  mt-8
+                  text-lg
+                  leading-8
+                  text-zinc-600
+                  max-w-2xl
+                "
+              >
                 {book.description}
               </p>
 
-              <div className="mt-8 flex gap-4">
-                <div className="bg-zinc-100 px-4 py-2 rounded-xl">
+              <div className="flex flex-wrap gap-4 mt-10">
+
+                <div
+                  className="
+                    px-5
+                    py-3
+                    rounded-2xl
+                    bg-white
+                    border
+                    border-emerald-100
+                    shadow-sm
+                  "
+                >
                   ❤️ {book.likes} Likes
                 </div>
 
-                <div className="bg-zinc-100 px-4 py-2 rounded-xl">
-                  📖 Lectura completa
+                <div
+                  className="
+                    px-5
+                    py-3
+                    rounded-2xl
+                    bg-white
+                    border
+                    border-emerald-100
+                    shadow-sm
+                  "
+                >
+                  📚 Lectura completa
                 </div>
+
+                <div
+                  className="
+                    px-5
+                    py-3
+                    rounded-2xl
+                    bg-white
+                    border
+                    border-emerald-100
+                    shadow-sm
+                  "
+                >
+                  🌎 BookVerse
+                </div>
+
               </div>
+
             </div>
 
-            <div>
-              <img
-                src={book.cover}
-                alt={book.title}
-                className="w-full h-[600px] object-cover rounded-3xl shadow-xl"
-              />
+            {/* Portada */}
+            <div className="flex justify-center">
+
+              <div
+                className="
+                  relative
+                  group
+                "
+              >
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-emerald-300/20
+                    blur-3xl
+                    rounded-full
+                    scale-110
+                  "
+                />
+
+                <img
+                  src={book.cover}
+                  alt={book.title}
+                  onError={(e) => {
+                    e.currentTarget.src =
+                      "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1200";
+                  }}
+                  className="
+                    relative
+                    w-[380px]
+                    h-[560px]
+                    object-cover
+                    rounded-[32px]
+                    shadow-2xl
+                    group-hover:scale-105
+                    transition-all
+                    duration-700
+                  "
+                />
+              </div>
+
             </div>
 
           </div>
+
         </div>
       </section>
 
-      {/* Contenido */}
-      <section className="max-w-4xl mx-auto px-6 py-16">
-        <div className="bg-white rounded-3xl border border-zinc-200 p-10 shadow-sm">
+      {/* Lectura */}
+      <section className="max-w-5xl mx-auto px-6 py-20">
 
-          <div className="prose prose-zinc max-w-none">
-            <div className="whitespace-pre-wrap text-lg leading-9 text-zinc-700">
+        <div
+          className="
+            bg-white
+            rounded-[40px]
+            border
+            border-emerald-100
+            shadow-xl
+            overflow-hidden
+          "
+        >
+          <div
+            className="
+              px-10
+              py-8
+              border-b
+              border-zinc-100
+            "
+          >
+            <h2 className="text-3xl font-bold">
+              Comenzar lectura
+            </h2>
+
+            <p className="text-zinc-500 mt-2">
+              Disfruta de esta historia escrita por{" "}
+              {book.author}
+            </p>
+          </div>
+
+          <div className="p-10 lg:p-16">
+
+            <div
+              className="
+                whitespace-pre-wrap
+                text-xl
+                leading-[2.2]
+                text-zinc-700
+                font-light
+              "
+            >
               {book.content}
             </div>
+
           </div>
 
         </div>
+
       </section>
 
-      {/* Footer lectura */}
-      <section className="max-w-4xl mx-auto px-6 pb-20">
-        <div className="bg-white border border-zinc-200 rounded-3xl p-8 text-center">
+      {/* Fin */}
+      <section className="max-w-4xl mx-auto px-6 pb-24">
 
-          <h3 className="text-2xl font-bold">
+        <div
+          className="
+            bg-white
+            border
+            border-emerald-100
+            rounded-[40px]
+            p-12
+            text-center
+            shadow-lg
+          "
+        >
+          <div className="text-6xl">
+            
+          </div>
+
+          <h3 className="mt-6 text-4xl font-bold text-zinc-900">
             Fin de la historia
           </h3>
 
-          <p className="mt-3 text-zinc-500">
-            Gracias por leer "{book.title}"
+          <p className="mt-4 text-lg text-zinc-500">
+            Gracias por leer
+          </p>
+
+          <p className="mt-2 text-emerald-700 font-semibold text-xl">
+            "{book.title}"
           </p>
 
           <Link
             to="/explore"
-            className="inline-block mt-6 px-6 py-3 bg-black text-white rounded-xl hover:bg-zinc-800 transition"
+            className="
+              inline-flex
+              items-center
+              gap-2
+              mt-8
+              px-8
+              py-4
+              rounded-2xl
+              bg-emerald-600
+              text-white
+              font-semibold
+              hover:bg-emerald-700
+              transition
+            "
           >
-            Explorar más libros
+             Explorar más libros
           </Link>
 
         </div>
+
       </section>
     </div>
   );

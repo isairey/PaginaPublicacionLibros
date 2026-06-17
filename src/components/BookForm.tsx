@@ -144,7 +144,7 @@ export default function BookForm({
 
         <div className="mb-8">
           <h2 className="text-4xl font-bold text-zinc-900">
-            📚 Publicar un libro
+             Publicar un libro
           </h2>
 
           <p className="text-zinc-500 mt-2">
@@ -192,7 +192,7 @@ export default function BookForm({
                 transition
               "
             >
-              🔍 Buscar
+               Buscar
             </button>
           </div>
 
@@ -310,7 +310,7 @@ export default function BookForm({
           >
             {loading
               ? "Publicando..."
-              : "🚀 Publicar libro"}
+              : " Publicar libro"}
           </button>
         </form>
       </div>
