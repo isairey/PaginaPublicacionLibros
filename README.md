@@ -172,7 +172,7 @@ El proyecto fue desarrollado para practicar:
 # 📂 Estructura del Proyecto
 
 ```bash
-BookVerse/
+PaginaPublicacionLibros/
 │
 ├── public/
 │
@@ -201,7 +201,7 @@ BookVerse/
 ## 1️⃣ Clonar repositorio
 
 ```bash
-git clone https://github.com/isairey/bookverse
+git clone https://github.com/isairey/PaginaPublicacionLibros
 ```
 
 ---
@@ -325,7 +325,7 @@ git push origin feature/nueva-funcion
 
 ---
 
-# 👨‍💻 Fundador
+# 👨‍💻 Desarrollador
 
 <div align="center">
 
